@@ -387,6 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Clear all existing content in the body
     body.innerHTML = '';
+  tabContainer.innerHTML = '';
     
     // Create a new div element
     const div = document.createElement('div');
@@ -411,5 +412,5 @@ document.addEventListener('DOMContentLoaded', function() {
     div.appendChild(heading);
     
     // Append the div to the body
-    body.appendChild(div);
+    tabContainer.appendChild(div);
 });
