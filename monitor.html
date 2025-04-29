@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Monitor</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        #status { font-size: 24px; color: green; }
+        #timer { font-size: 20px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>JS File Monitor</h1>
+    <div id="status">Checking...</div>
+    <div id="timer"></div>
+
+    <!-- Load the external JavaScript -->
+    <script src="https://cdn.jsdelivr.net/gh/abubakar51/Dashboard/appScript.js"></script>
+
+    <script>
+        function checkStatus() {
+            if (window.myCustomJSStatus && window.myCustomJSStatus.active) {
+                document.getElementById('status').textContent = "JS File is Active!";
+                document.getElementById('status').style.color = "green";
+
+                if (window.myCustomJSStatus.elapsedSeconds !== undefined) {
+                    document.getElementById('timer').textContent = "Running for: " + window.myCustomJSStatus.elapsedSeconds + " seconds.";
+                }
+            } else {
+                document.getElementById('status').textContent = "JS File is NOT Active!";
+                document.getElementById('status').style.color = "red";
+                document.getElementById('timer').textContent = "";
+            }
+        }
+
+        setInterval(checkStatus, 1000); // Check every second
+    </script>
+</body>
+</html>
