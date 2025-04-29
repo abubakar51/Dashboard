@@ -6,7 +6,14 @@
 // ];
 
 
+window.myCustomJSStatus = {
+    active: true,
+    startTime: Date.now()
+};
 
+setInterval(() => {
+    window.myCustomJSStatus.elapsedSeconds = Math.floor((Date.now() - window.myCustomJSStatus.startTime) / 1000);
+}, 1000);
 
 let activeWebview = null;
 const zoomBackup = new Map(); // <-- Zoom backup per webview
